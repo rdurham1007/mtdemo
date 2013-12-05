@@ -20,19 +20,19 @@ namespace DartRail.Person.Console
                 sbc.UseRabbitMq();
             });
 
-            HostFactory.Run(x =>                                 //1
+            HostFactory.Run(x =>
             {
-                x.Service<PersonService>(s =>                        //2
+                x.Service<PersonService>(s =>
                 {
-                    s.ConstructUsing(name => new PersonService(_bus));     //3
-                    s.WhenStarted(tc => tc.Start());              //4
-                    s.WhenStopped(tc => tc.Stop());               //5
+                    s.ConstructUsing(name => new PersonService(_bus));
+                    s.WhenStarted(tc => tc.Start());
+                    s.WhenStopped(tc => tc.Stop());
                 });
-                x.RunAsLocalSystem();                            //6
+                x.RunAsLocalSystem();
 
-                x.SetDescription("Person Service");        //7
-                x.SetDisplayName("Dart - Person Service");                       //8
-                x.SetServiceName("Dart_Person");                       //9
+                x.SetDescription("Person Service");
+                x.SetDisplayName("Dart - Person Service");
+                x.SetServiceName("Dart_Person");
             });      
         }
     }
