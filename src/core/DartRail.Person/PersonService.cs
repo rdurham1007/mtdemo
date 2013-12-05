@@ -37,7 +37,7 @@ namespace DartRail.Person
                         nextPerson = DateTime.Now.AddSeconds(2);
                         var name = NameGenerator.NewName();
 
-                        _bus.Publish(new NewTicketRequest
+                        _bus.Publish(new NewTicketRequestMessage
                         {
                             CorrelationId = CombGuid.Generate(),
                             Name = name

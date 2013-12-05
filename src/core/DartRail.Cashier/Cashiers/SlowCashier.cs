@@ -9,7 +9,7 @@ namespace DartRail.Cashier
 {
     public class SlowCashier: Cashier
     {
-        public override void Consume(Messages.NewTicketRequest msg)
+        public override void Consume(Messages.NewTicketRequestMessage msg)
         {
             Thread.Sleep(4000);
             base.Consume(msg);

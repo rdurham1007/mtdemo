@@ -10,7 +10,7 @@ namespace DartRail.Cashier
 {
     public class SimpleCashier: Cashier
     {
-        public override void Consume(NewTicketRequest msg)
+        public override void Consume(NewTicketRequestMessage msg)
         {
             base.Consume(msg);
         }

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DartRail.Cashier
 {
-    public class Cashier : Consumes<NewTicketRequest>.All
+    public class Cashier : Consumes<NewTicketRequestMessage>.All
     {
         public Cashier()
         {
 
         }
         
-        public virtual void Consume(NewTicketRequest msg)
+        public virtual void Consume(NewTicketRequestMessage msg)
         {
             Console.WriteLine(string.Format("Here's your tick {0}", msg.Name));
         }
