@@ -54,17 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NameGenerator.cs" />
     <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\people.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\utility\MassTransitDemo.Utility\MassTransitDemo.Utility.csproj">
+      <Project>{9cec80c8-3f85-452c-820b-646f539e6ab5}</Project>
+      <Name>MassTransitDemo.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DartRail.Messages\DartRail.Messages.csproj">
       <Project>{812f2365-9086-4b26-866e-5f8b7a10ea74}</Project>
       <Name>DartRail.Messages</Name>

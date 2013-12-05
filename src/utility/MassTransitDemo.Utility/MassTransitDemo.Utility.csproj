@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE5B002F-51D1-469D-B9BF-CC9CBEE29C6C}</ProjectGuid>
+    <ProjectGuid>{9CEC80C8-3F85-452C-820B-646F539E6AB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DartRail.Cashier</RootNamespace>
-    <AssemblyName>DartRail.Cashier</AssemblyName>
+    <RootNamespace>MassTransitDemo.Utility</RootNamespace>
+    <AssemblyName>MassTransitDemo.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,21 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Magnum">
-      <HintPath>..\..\..\packages\Magnum.2.1.1\lib\NET40\Magnum.dll</HintPath>
-    </Reference>
-    <Reference Include="MassTransit">
-      <HintPath>..\..\..\packages\MassTransit.2.9.0\lib\net40\MassTransit.dll</HintPath>
-    </Reference>
-    <Reference Include="MassTransit.Transports.RabbitMq">
-      <HintPath>..\..\..\packages\MassTransit.RabbitMQ.2.9.0\lib\net40\MassTransit.Transports.RabbitMq.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RabbitMQ.Client">
-      <HintPath>..\..\..\packages\RabbitMQ.Client.3.2.1\lib\net30\RabbitMQ.Client.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,25 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedCashierService.cs" />
-    <Compile Include="Cashiers\Cashier.cs" />
-    <Compile Include="Cashiers\SimpleCashier.cs" />
-    <Compile Include="CashierService.cs" />
-    <Compile Include="Cashiers\SlowCashier.cs" />
+    <Compile Include="NameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\utility\MassTransitDemo.Utility\MassTransitDemo.Utility.csproj">
-      <Project>{9cec80c8-3f85-452c-820b-646f539e6ab5}</Project>
-      <Name>MassTransitDemo.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DartRail.Messages\DartRail.Messages.csproj">
-      <Project>{812f2365-9086-4b26-866e-5f8b7a10ea74}</Project>
-      <Name>DartRail.Messages</Name>
-    </ProjectReference>
+    <None Include="data\people.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

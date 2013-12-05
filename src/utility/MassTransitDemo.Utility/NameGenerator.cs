@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DartRail.Person
+namespace MassTransitDemo.Utility
 {
     public static class NameGenerator
     {

@@ -18,7 +18,7 @@ namespace DartRail.Cashier.Console
             {
                 sbc.ReceiveFrom("rabbitmq://localhost/cashier_line");
                 sbc.UseRabbitMq();
-                //sbc.SetConcurrentConsumerLimit(1); //for demo puproses
+                sbc.SetConcurrentConsumerLimit(1); //for demo puproses
             });
 
             HostFactory.Run(x =>                                 

@@ -7,28 +7,36 @@ using System.Threading.Tasks;
 
 namespace DartRail.Cashier
 {
-    public class CashierService
+    public class AdvancedCashierService
     {
         private IServiceBus _bus;
-        private Cashier _cashier;
+        private List<UnsubscribeAction> _unsubscribeActions;
 
-        public CashierService(IServiceBus bus)
+        public AdvancedCashierService(IServiceBus bus)
         {
             _bus = bus;
         }
 
-        public void Start<T>() where T : Cashier, new()
-        {
-            _cashier = new T();
-            _cashier.Subscribe(_bus);
+        public void Start()
+        {            
             Console.WriteLine("[Cashier Service] Now accepting ticket requests!");
         }
 
         public void Stop()
         {
-            _cashier.Unsubscribe();
-            _bus.Dispose();
+            foreach (var unsubscribeAction in _unsubscribeActions)
+            {
+                unsubscribeAction();
+            }
+
+            if (_bus != null)
+            {
+                _bus.Dispose();
+                _bus = null;
+            }
+
             Console.WriteLine("[Cashier Service] No longer accepting ticket requests.");
         }
+
     }
 }

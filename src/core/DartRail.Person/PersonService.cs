@@ -1,6 +1,7 @@
 ﻿using DartRail.Messages;
 using Magnum;
 using MassTransit;
+using MassTransitDemo.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
