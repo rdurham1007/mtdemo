@@ -17,9 +17,9 @@ namespace DartRail.Cashier
             _bus = bus;
         }
 
-        public void Start()
-        {
-            _unsubscribeAction = _bus.SubscribeConsumer<SimpleCashier>();
+        public void Start<T>() where T : class, IConsumer, new()
+        {            
+            _unsubscribeAction = _bus.SubscribeConsumer<T>();
             Console.WriteLine("Cashier reporting for duty!");
         }
 

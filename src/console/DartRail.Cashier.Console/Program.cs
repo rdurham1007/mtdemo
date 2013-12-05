@@ -18,21 +18,22 @@ namespace DartRail.Cashier.Console
             {
                 sbc.ReceiveFrom("rabbitmq://localhost/cashier_line");
                 sbc.UseRabbitMq();
+                //sbc.SetConcurrentConsumerLimit(1); //for demo puproses
             });
 
-            HostFactory.Run(x =>                                 //1
+            HostFactory.Run(x =>                                 
             {
-                x.Service<CashierService>(s =>                        //2
+                x.Service<CashierService>(s =>
                 {
-                    s.ConstructUsing(name => new CashierService(_bus));     //3
-                    s.WhenStarted(tc => tc.Start());              //4
-                    s.WhenStopped(tc => tc.Stop());               //5
+                    s.ConstructUsing(name => new CashierService(_bus));
+                    s.WhenStarted(tc => tc.Start<SlowCashier>());
+                    s.WhenStopped(tc => tc.Stop());
                 });
-                x.RunAsLocalSystem();                            //6
 
-                x.SetDescription("Cashier Service");        //7
-                x.SetDisplayName("Dart - Cashier Service");                       //8
-                x.SetServiceName("Dart_Cashier");                       //9
+                x.RunAsLocalSystem();
+                x.SetDescription("Cashier Service");
+                x.SetDisplayName("Dart - Cashier Service");
+                x.SetServiceName("Dart_Cashier");
             });      
 
 

@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimpleCashier.cs" />
+    <Compile Include="Cashiers\Cashier.cs" />
+    <Compile Include="Cashiers\SimpleCashier.cs" />
     <Compile Include="CashierService.cs" />
+    <Compile Include="Cashiers\SlowCashier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

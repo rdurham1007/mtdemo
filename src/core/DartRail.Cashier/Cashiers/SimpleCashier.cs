@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DartRail.Cashier
 {
-    public class SimpleCashier: Consumes<NewTicketRequest>.All
+    public class SimpleCashier: Cashier
     {
-        public void Consume(NewTicketRequest msg)
+        public override void Consume(NewTicketRequest msg)
         {
-            Console.WriteLine(string.Format("Here's your ticket {0}", msg.Name));
+            base.Consume(msg);
         }
     }
 }

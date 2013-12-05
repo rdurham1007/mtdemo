@@ -34,15 +34,16 @@ namespace DartRail.Person
 
                     if(nextPerson < DateTime.Now)
                     {
-                        nextPerson = DateTime.Now.AddSeconds(5);
+                        nextPerson = DateTime.Now.AddSeconds(2);
+                        var name = NameGenerator.NewName();
 
                         _bus.Publish(new NewTicketRequest
                         {
                             CorrelationId = CombGuid.Generate(),
-                            Name = "Someone Random"
+                            Name = name
                         });
 
-                        Console.WriteLine("Requesting Ticket");
+                        Console.WriteLine(name + ": I'd like a ticket please.");
                     }
 
                     if (ct.IsCancellationRequested)
